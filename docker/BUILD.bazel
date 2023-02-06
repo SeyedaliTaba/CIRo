@@ -1,0 +1,85 @@
+load("@io_bazel_rules_docker//container:container.bzl", "container_bundle")
+load(":scion_app.bzl", "scion_app_base", "scion_app_images")
+load(":tester.bzl", "build_tester_image")
+
+container_bundle(
+    name = "prod",
+    images = {
+        "control:latest": ":control",
+        "daemon:latest": ":daemon",
+        "dispatcher:latest": ":dispatcher",
+        "posix-gateway:latest": ":posix_gateway",
+        "posix-router:latest": "posix_router",
+    },
+    visibility = ["//visibility:public"],
+)
+
+container_bundle(
+    name = "test",
+    images = {
+        "tester:latest": ":tester",
+    },
+    visibility = ["//visibility:public"],
+)
+
+scion_app_base()
+
+build_tester_image()
+
+scion_app_images(
+    name = "posix_router",
+    src = "//router/cmd/router",
+    cmd = [
+        "--config",
+        "/share/conf/br.toml",
+    ],
+    entrypoint = ["/app/router"],
+)
+
+scion_app_images(
+    name = "control",
+    src = "//control/cmd/control",
+    cmd = [
+        "--config",
+        "/share/conf/cs.toml",
+    ],
+    entrypoint = ["/app/control"],
+)
+
+scion_app_images(
+    name = "dispatcher",
+    src = "//dispatcher/cmd/dispatcher",
+    cmd = [
+        "--config",
+        "/share/conf/disp.toml",
+    ],
+    entrypoint = ["/app/dispatcher"],
+)
+
+scion_app_images(
+    name = "daemon",
+    src = "//daemon/cmd/daemon",
+    cmd = [
+        "--config",
+        "/share/conf/sd.toml",
+    ],
+    entrypoint = ["/app/daemon"],
+)
+
+scion_app_images(
+    name = "posix_gateway",
+    src = "//gateway/cmd/gateway",
+    caps = "cap_net_admin+ei",
+    caps_binary = "/app/gateway",
+    cmd = [
+        "--config",
+        "/share/conf/sig.toml",
+    ],
+    entrypoint = ["/app/gateway"],
+)
+
+filegroup(
+    name = "tester_files",
+    srcs = glob(["files/*"]),
+    visibility = ["//visibility:public"],
+)

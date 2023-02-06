@@ -1,0 +1,39 @@
+--- # 4 nodes fully connected, where each node has two connections to a neighbour
+ASes:
+  "1-ff00:0:1":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+    underlay: UDP/IPv6
+  "2-ff00:0:2":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "3-ff00:0:3":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+    underlay: UDP/IPv6
+  "4-ff00:0:4":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+    underlay: UDP/IPv6
+
+links:
+  - {a: "1-ff00:0:1#121",     b: "2-ff00:0:2#211",   linkAtoB: CORE}
+  - {a: "1-ff00:0:1#122",     b: "2-ff00:0:2#212",   linkAtoB: CORE}
+  - {a: "1-ff00:0:1#131",     b: "3-ff00:0:3#311",   linkAtoB: CORE}
+  - {a: "1-ff00:0:1#132",     b: "3-ff00:0:3#312",   linkAtoB: CORE}
+  - {a: "1-ff00:0:1#141",     b: "4-ff00:0:4#411",   linkAtoB: CORE}
+  - {a: "1-ff00:0:1#142",     b: "4-ff00:0:4#412",   linkAtoB: CORE}
+  - {a: "2-ff00:0:2#231",     b: "3-ff00:0:3#321",   linkAtoB: CORE}
+  - {a: "2-ff00:0:2#232",     b: "3-ff00:0:3#322",   linkAtoB: CORE}
+  - {a: "2-ff00:0:2#241",     b: "4-ff00:0:4#421",   linkAtoB: CORE}
+  - {a: "2-ff00:0:2#242",     b: "4-ff00:0:4#422",   linkAtoB: CORE}
+  - {a: "3-ff00:0:3#341",     b: "4-ff00:0:4#431",   linkAtoB: CORE}
+  - {a: "3-ff00:0:3#342",     b: "4-ff00:0:4#432",   linkAtoB: CORE}

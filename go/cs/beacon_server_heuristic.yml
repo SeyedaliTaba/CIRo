@@ -1,0 +1,9 @@
+---
+BestSetSize: 20
+CandidateSetSize: 100
+MaxExpTime: 255
+Filter:
+  AsBlackList:  []      
+  IsdBlackList: []
+  MaxHopsLength: 100000
+  AllowIsdLoop: false

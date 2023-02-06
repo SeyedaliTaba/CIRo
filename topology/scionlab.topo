@@ -1,0 +1,158 @@
+--- # Default topology
+ASes:
+  "22-ffaa:0:1601":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "18-ffaa:0:1201":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "20-ffaa:0:1401":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "16-ffaa:0:1004":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "16-ffaa:0:1006":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "16-ffaa:0:1007":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "16-ffaa:0:1002":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "16-ffaa:0:1003":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "16-ffaa:0:1005":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "16-ffaa:0:1001":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "17-ffaa:0:1108":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "17-ffaa:0:1101":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "21-ffaa:0:1501":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "19-ffaa:0:130b":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "19-ffaa:0:1302":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "19-ffaa:0:1301":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "26-ffaa:0:2002":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "26-ffaa:0:2003":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "26-ffaa:0:2004":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "26-ffaa:0:2001":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+  "25-ffaa:0:1902":
+    core: true
+    voting: true
+    authoritative: true
+    issuing: true
+links:
+  - {a: "18-ffaa:0:1201#1", b: "19-ffaa:0:1301#1", linkAtoB: CORE}
+  - {a: "18-ffaa:0:1201#2", b: "20-ffaa:0:1401#1", linkAtoB: CORE}
+  - {a: "20-ffaa:0:1401#2", b: "21-ffaa:0:1501#1", linkAtoB: CORE}
+  - {a: "20-ffaa:0:1401#3", b: "26-ffaa:0:2001#1", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1004#1", b: "16-ffaa:0:1005#1", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1004#2", b: "18-ffaa:0:1201#3", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1004#3", b: "16-ffaa:0:1006#1", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1004#4", b: "16-ffaa:0:1002#1", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1004#5", b: "16-ffaa:0:1007#1", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1006#2", b: "20-ffaa:0:1401#4", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1006#3", b: "21-ffaa:0:1501#2", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1006#4", b: "22-ffaa:0:1601#1", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1006#5", b: "16-ffaa:0:1007#2", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1007#3", b: "25-ffaa:0:1902#1", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1002#2", b: "16-ffaa:0:1003#1", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1002#3", b: "17-ffaa:0:1101#1", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1002#4", b: "19-ffaa:0:1301#2", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1002#5", b: "16-ffaa:0:1007#4", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1003#2", b: "16-ffaa:0:1004#6", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1003#3", b: "16-ffaa:0:1005#2", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1003#4", b: "18-ffaa:0:1201#4", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1003#5", b: "16-ffaa:0:1006#6", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1005#3", b: "16-ffaa:0:1006#7", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1005#4", b: "16-ffaa:0:1007#5", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1001#1", b: "16-ffaa:0:1002#6", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1001#2", b: "16-ffaa:0:1004#7", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1001#3", b: "17-ffaa:0:1101#2", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1001#4", b: "19-ffaa:0:1301#3", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1001#5", b: "16-ffaa:0:1007#6", linkAtoB: CORE}
+  - {a: "16-ffaa:0:1001#6", b: "16-ffaa:0:1005#5", linkAtoB: CORE}
+  - {a: "17-ffaa:0:1101#3", b: "17-ffaa:0:1108#1", linkAtoB: CORE}
+  - {a: "17-ffaa:0:1101#4", b: "17-ffaa:0:1108#2", linkAtoB: CORE}
+  - {a: "17-ffaa:0:1101#5", b: "18-ffaa:0:1201#5", linkAtoB: CORE}
+  - {a: "17-ffaa:0:1101#6", b: "19-ffaa:0:1301#4", linkAtoB: CORE}
+  - {a: "17-ffaa:0:1101#7", b: "20-ffaa:0:1401#5", linkAtoB: CORE}
+  - {a: "21-ffaa:0:1501#3", b: "22-ffaa:0:1601#2", linkAtoB: CORE}
+  - {a: "19-ffaa:0:130b#1", b: "19-ffaa:0:1301#5", linkAtoB: CORE}
+  - {a: "19-ffaa:0:1302#1", b: "19-ffaa:0:130b#2", linkAtoB: CORE}
+  - {a: "19-ffaa:0:1302#2", b: "19-ffaa:0:130b#3", linkAtoB: CORE}
+  - {a: "19-ffaa:0:1302#3", b: "17-ffaa:0:1108#3", linkAtoB: CORE}
+  - {a: "19-ffaa:0:1302#4", b: "17-ffaa:0:1108#4", linkAtoB: CORE}
+  - {a: "19-ffaa:0:1301#6", b: "19-ffaa:0:1302#5", linkAtoB: CORE}
+  - {a: "26-ffaa:0:2002#1", b: "26-ffaa:0:2004#1", linkAtoB: CORE}
+  - {a: "26-ffaa:0:2002#2", b: "26-ffaa:0:2004#2", linkAtoB: CORE}
+  - {a: "26-ffaa:0:2002#3", b: "26-ffaa:0:2001#2", linkAtoB: CORE}
+  - {a: "26-ffaa:0:2002#4", b: "26-ffaa:0:2001#3", linkAtoB: CORE}
+  - {a: "26-ffaa:0:2003#1", b: "26-ffaa:0:2001#4", linkAtoB: CORE}
+  - {a: "26-ffaa:0:2003#2", b: "26-ffaa:0:2001#5", linkAtoB: CORE}
+  - {a: "25-ffaa:0:1902#2", b: "20-ffaa:0:1401#6", linkAtoB: CORE}
+  - {a: "25-ffaa:0:1902#3", b: "22-ffaa:0:1601#3", linkAtoB: CORE}

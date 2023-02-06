@@ -1,0 +1,125 @@
+load("@bazel_skylib//rules:common_settings.bzl", "bool_flag")
+load("@bazel_gazelle//:def.bzl", "gazelle")
+load("@rules_pkg//:pkg.bzl", "pkg_tar")
+load("@io_bazel_rules_go//go:def.bzl", "nogo")
+load("//tools/lint:go_config.bzl", "go_lint_config")
+load("//tools/lint/python:flake8_config.bzl", "flake8_lint_config")
+load("//:nogo.bzl", "nogo_deps")
+load("@com_github_bazelbuild_buildtools//buildifier:def.bzl", "buildifier")
+load("@cgrindel_bazel_starlib//updatesrc:defs.bzl", "updatesrc_update_all")
+
+# gazelle:prefix github.com/scionproto/scion
+# gazelle:map_kind go_library go_library //tools/lint:go.bzl
+# gazelle:map_kind go_test go_test //tools/lint:go.bzl
+# gazelle:exclude docker/_build/**
+# gazelle:exclude proto/**
+# gazelle:exclude doc/**
+# gazelle:exclude rules_openapi/tools/node_modules/**
+# gazelle:exclude tools/lint/**/testdata/src/**
+gazelle(name = "gazelle")
+
+go_lint_config(
+    name = "go_lint_config",
+    exclude_filter = [
+        "mock_",
+        ".pb.go",
+        ".gen.go",
+    ],
+    visibility = [
+        "//visibility:public",
+    ],
+)
+
+flake8_lint_config(
+    name = "flake8_lint_config",
+    config_file = ".flake8",
+    visibility = [
+        "//visibility:public",
+    ],
+)
+
+# Add a build flag to enable bundling the management API documentation with the
+# binaries. This can be enabled by passing --//:mgmtapi_bundle_doc=true when
+# invoking bazel
+bool_flag(
+    name = "mgmtapi_bundle_doc",
+    build_setting_default = False,
+)
+
+config_setting(
+    name = "mgmtapi_bundle_doc_build",
+    flag_values = {":mgmtapi_bundle_doc": "true"},
+)
+
+# This is the SCION distributable package. It contains all (binary) services,
+# and the required tools.
+pkg_tar(
+    name = "scion",
+    srcs = [
+        "//control/cmd/control",
+        "//daemon/cmd/daemon",
+        "//dispatcher/cmd/dispatcher",
+        "//gateway/cmd/gateway",
+        "//router/cmd/router",
+        "//scion-pki/cmd/scion-pki",
+        "//scion/cmd/scion",
+        "//tools/pathdb_dump",
+    ],
+    mode = "0755",
+    package_dir = "",
+)
+
+# This contains all of the binaries needed to run CI (integration & acceptance
+# tests)
+pkg_tar(
+    name = "scion-ci",
+    srcs = [
+        "//acceptance/cmd/sig_ping_acceptance",
+        "//pkg/private/xtest/graphupdater",
+        "//tools/braccept",
+        "//tools/buildkite/cmd/buildkite_artifacts",
+        "//tools/end2end",
+        "//tools/end2end_integration",
+        "//tools/pktgen/cmd/pktgen",
+        "//tools/scion_integration",
+        "//tools/udpproxy",
+    ],
+    mode = "0755",
+    package_dir = "",
+)
+
+# This contains all of the binaries needed to run the topology generator.
+pkg_tar(
+    name = "scion-topo",
+    srcs = [
+        "//scion-pki/cmd/scion-pki",
+    ],
+    mode = "0755",
+    package_dir = "",
+)
+
+# Nogo - Go code analysis tool
+nogo(
+    name = "nogo",
+    config = "nogo.json",
+    visibility = ["//visibility:public"],
+    deps = nogo_deps,
+)
+
+buildifier(
+    name = "buildifier",
+)
+
+buildifier(
+    name = "buildifier_check",
+    mode = "check",
+)
+
+# Runs all update_src targets in this Workspace.
+updatesrc_update_all(
+    name = "update_all",
+    targets_to_run = [
+        "//doc/command:copy_scion",
+        "//doc/command:copy_scion-pki",
+    ],
+)

@@ -1,0 +1,102 @@
+load("@com_github_scionproto_scion//rules_openapi:defs.bzl", "openapi_bundle")
+
+openapi_bundle(
+    name = "control",
+    srcs = [
+        "//spec/common:base.yml",
+        "//spec/common:process.yml",
+        "//spec/control:beacons.yml",
+        "//spec/control:cppki.yml",
+        "//spec/cppki:spec.yml",
+        "//spec/health:spec.yml",
+        "//spec/segments:spec.yml",
+    ],
+    entrypoint = "//spec/control:spec.yml",
+    visibility = ["//visibility:public"],
+)
+
+openapi_bundle(
+    name = "ca",
+    srcs = [
+        "//spec/ca:auth.yml",
+        "//spec/ca:health.yml",
+        "//spec/ca:problem.yml",
+        "//spec/ca:ra.yml",
+    ],
+    entrypoint = "//spec/ca:spec.yml",
+    visibility = ["//visibility:public"],
+)
+
+openapi_bundle(
+    name = "dispatcher",
+    srcs = [
+        "//spec/common:base.yml",
+        "//spec/common:process.yml",
+    ],
+    entrypoint = "//spec/dispatcher:spec.yml",
+    visibility = ["//visibility:public"],
+)
+
+openapi_bundle(
+    name = "daemon",
+    srcs = [
+        "//spec/common:base.yml",
+        "//spec/common:process.yml",
+        "//spec/cppki:spec.yml",
+        "//spec/segments:spec.yml",
+    ],
+    entrypoint = "//spec/daemon:spec.yml",
+    visibility = ["//visibility:public"],
+)
+
+openapi_bundle(
+    name = "gateway",
+    srcs = [
+        "//spec/common:base.yml",
+        "//spec/common:process.yml",
+    ],
+    entrypoint = "//spec/gateway:spec.yml",
+    visibility = ["//visibility:public"],
+)
+
+openapi_bundle(
+    name = "router",
+    srcs = [
+        "//spec/common:base.yml",
+        "//spec/common:process.yml",
+        "//spec/common:scion.yml",
+        "//spec/router:interfaces.yml",
+    ],
+    entrypoint = "//spec/router:spec.yml",
+    visibility = ["//visibility:public"],
+)
+
+openapi_bundle(
+    name = "segments",
+    srcs = [
+        "//spec/common:base.yml",
+        "//spec/common:process.yml",
+    ],
+    entrypoint = "//spec/segments:spec.yml",
+    visibility = ["//visibility:public"],
+)
+
+openapi_bundle(
+    name = "cppki",
+    srcs = [
+        "//spec/common:base.yml",
+        "//spec/common:process.yml",
+    ],
+    entrypoint = "//spec/cppki:spec.yml",
+    visibility = ["//visibility:public"],
+)
+
+openapi_bundle(
+    name = "health",
+    srcs = [
+        "//spec/common:base.yml",
+        "//spec/common:process.yml",
+    ],
+    entrypoint = "//spec/health:spec.yml",
+    visibility = ["//visibility:public"],
+)
