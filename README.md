@@ -1,4 +1,4 @@
-# SCION
+# ICIRo
 
 [![Slack chat](https://img.shields.io/badge/chat%20on-slack-blue?logo=slack)](https://scionproto.slack.com)
 [![ReadTheDocs](https://img.shields.io/badge/doc-reference-blue?version=latest&style=flat&label=docs&logo=read-the-docs&logoColor=white)](https://docs.scion.org/en/latest)
@@ -10,35 +10,23 @@
 [![Release](https://img.shields.io/github/release-pre/scionproto/scion.svg)](https://github.com/scionproto/scion/releases)
 [![License](https://img.shields.io/github/license/scionproto/scion.svg?maxAge=2592000)](https://github.com/scionproto/scion/blob/master/LICENSE)
 
-Welcome to the open-source implementation of
-[SCION](http://www.scion-architecture.net) (Scalability, Control and Isolation
-On next-generation Networks), a future Internet architecture. SCION is the first
-clean-slate Internet architecture designed to provide route control, failure
-isolation, and explicit trust information for end-to-end communication. To find
-out more about the project, please visit our [documentation
+This is the modified SCION code base to support ICIRo, the carbon intensity forecasting and dissemination system. You can find the forecasting module [here](https://github.com/SeyedaliTaba/ICIRo/blob/main/control/beaconing/carbon_forecaster.go), and the dissemination module [here](https://github.com/SeyedaliTaba/ICIRo/blob/c1a743c1b3dafb2a4ffe26ba961fd633891b9c8e/control/beaconing/staticinfo_config.go#L232).
+
+To find out more about SCION project, please visit [documentation
 site](https://docs.scion.org/en/latest/).
 
 ## Connecting to the SCION Test Network
 
-Join [SCIONLab](https://www.scionlab.org) if you're interested in playing with
-SCION in an operational global test deployment of SCION. As part of the SCIONLab
-project, we support [pre-built binaries as Debian
+Join [SCIONLab](https://www.scionlab.org) if you are interested in playing with
+SCION in an operational global test deployment of SCION. SCIONLab supports [pre-built binaries as Debian
 packages](https://docs.scionlab.org/content/install/).
 
 ## Building
 
-To find out how to work with SCION, please visit our [documentation
+To find out how to work with SCION, please visit the [documentation
 site](https://docs.scion.org/en/latest/contribute.html#setting-up-the-development-environment)
 for instructions on how to install build dependencies, build and run SCION.
 
-## Contributing
-
-Interested in contribution to the SCION project? Please visit our
-[contribution guide](https://docs.scion.org/en/latest/contribute.html)
-for more information about how you can do so.
-
-Join us on our [slack workspace](https://scionproto.slack.com) with this invite link:
-[join scionproto.slack.com](https://join.slack.com/t/scionproto/shared_invite/zt-1gtgkuvk3-vQzq3gPOWOL6T58yu45vXg)
 
 ## License
 
