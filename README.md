@@ -10,7 +10,7 @@
 [![Release](https://img.shields.io/github/release-pre/scionproto/scion.svg)](https://github.com/scionproto/scion/releases)
 [![License](https://img.shields.io/github/license/scionproto/scion.svg?maxAge=2592000)](https://github.com/scionproto/scion/blob/master/LICENSE)
 
-This is the modified SCION code base to support CIRo, the carbon intensity forecasting and dissemination system. You can find the forecasting module [here](https://anonymous.4open.science/r/CIRo-B646/control/beaconing/carbon_forecaster.go), and the dissemination module [here](https://anonymous.4open.science/r/CIRo-B646/control/beaconing/staticinfo_config.go#L232).
+This is the modified SCION code base to support CIRo, the carbon intensity forecasting and dissemination system. You can find the forecasting module [here](https://anonymous.4open.science/r/CIRo-8CE8/control/beaconing/carbon_forecaster.go), and the dissemination module [here](https://anonymous.4open.science/r/CIRo-8CE8/control/beaconing/staticinfo_config.go#L232).
 
 To find out more about SCION project, please visit [documentation
 site](https://docs.scion.org/en/latest/).
